@@ -47,7 +47,7 @@ class _AddBookPageState extends State<AddBookPage> {
             ElevatedButton(
               onPressed: () async {
                 final book = Book(
-                  id: DateTime.now().microsecondsSinceEpoch,
+                  id: '',
                   title: titleController.text,
                   author: authorController.text,
                   status: status,
@@ -55,6 +55,7 @@ class _AddBookPageState extends State<AddBookPage> {
                 );
                 await DatabaseHelper().insertBook(book);
                 Navigator.pop(context, true);
+                print("SE presiono");
               },
               child: const Text('Guardar'),
             ),
